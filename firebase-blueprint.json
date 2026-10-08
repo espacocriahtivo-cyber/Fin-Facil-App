@@ -1,0 +1,126 @@
+{
+  "entities": {
+    "Transaction": {
+      "title": "Transaction",
+      "description": "Financial transaction record for personal or micro-business scope",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Document ID"
+        },
+        "userId": {
+          "type": "string",
+          "description": "User identifier matching auth.uid"
+        },
+        "context": {
+          "type": "string",
+          "enum": ["personal", "business"],
+          "description": "Scope whether personal expense or micro-business"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["income", "expense"],
+          "description": "Type of transaction"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Positive numeric transaction value"
+        },
+        "category": {
+          "type": "string",
+          "maxLength": 64,
+          "description": "Transaction category"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 160,
+          "description": "Brief description of transaction"
+        },
+        "date": {
+          "type": "string",
+          "maxLength": 30,
+          "description": "Transaction date in ISO format YYYY-MM-DD"
+        },
+        "dueDate": {
+          "type": "string",
+          "maxLength": 30,
+          "description": "Due date for pending bills YYYY-MM-DD"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["paid", "pending"],
+          "description": "Payment status"
+        },
+        "paymentMethod": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "Payment method such as Pix, Card, Cash, Boleto"
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Optional notes or invoice details"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Server timestamp of creation"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Server timestamp of last update"
+        }
+      },
+      "required": ["userId", "context", "type", "amount", "category", "description", "date", "status"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User preferences and profile configuration",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User ID matching auth.uid"
+        },
+        "displayName": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "User name"
+        },
+        "businessName": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Micro business trade or company name"
+        },
+        "currency": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Currency symbol or code"
+        },
+        "notificationsEnabled": {
+          "type": "boolean",
+          "description": "Push notification preference toggle"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Profile creation time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Profile update time"
+        }
+      },
+      "required": ["userId"]
+    }
+  },
+  "firestore": {
+    "/transactions/{transactionId}": {
+      "schema": "Transaction",
+      "description": "Collection of personal and micro-business financial transactions"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile and settings"
+    }
+  }
+}

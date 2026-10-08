@@ -1,0 +1,18 @@
+{
+  "name": "Fin Fácil App - Finanças Pessoais & Micro Negócio",
+  "short_name": "Fin Fácil",
+  "description": "Controle financeiro pessoal e micro negócio simples, prático, com sincronização em tempo real e modo offline.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#0f172a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

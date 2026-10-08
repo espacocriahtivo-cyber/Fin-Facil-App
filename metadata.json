@@ -1,0 +1,6 @@
+{
+  "name": "FinanSync - Gestão Financeira Pessoal & Micro Negócio",
+  "description": "Aplicativo mobile responsivo para controle financeiro pessoal e micro negócio com sincronização Firebase em tempo real, modo offline, relatórios gráficos e exportação PDF/Excel.",
+  "requestFramePermissions": ["notifications"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
